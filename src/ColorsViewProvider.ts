@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 export default class ColorsViewProvider implements vscode.WebviewViewProvider {
-    public readonly viewType:string = 'practice.colorView';
+    public static readonly viewType:string = 'practice.colorView';
     private _view?: vscode.WebviewView;
     private _extensionUri: vscode.Uri;
 

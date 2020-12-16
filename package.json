@@ -10,11 +10,21 @@
 		"Other"
 	],
 	"activationEvents": [
+		"onView:practice.colorView",
 		"onCommand:practice.helloWorld",
 		"onCommand:practice.newCommand"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
+		"views": {
+			"explorer": [
+				{
+					"type": "webview",
+					"id": "practice.colorView",
+					"name": "Practice colors"
+				}
+			]
+		},
 		"commands": [
 			{
 				"command": "practice.helloWorld",
