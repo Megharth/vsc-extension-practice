@@ -26,6 +26,7 @@ export default class ColorsViewProvider implements vscode.WebviewViewProvider {
 
     private _getHTMLContent(webview: vscode.Webview) {
         const nonce = getNonce();
+        const stylesheet = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'src', 'app', 'index.css'));
         return `
         <!DOCTYPE html>
         <html lang="en">
@@ -33,6 +34,7 @@ export default class ColorsViewProvider implements vscode.WebviewViewProvider {
                 <meta charset="UTF-8">
                 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource}; script-src 'nonce-${nonce}';">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="${stylesheet}">
             </head>
             <body>
                 Hello world!

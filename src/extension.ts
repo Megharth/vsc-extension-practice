@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import ColorsViewProvider from './ColorsViewProvider';
+import ColorsViewProvider from './app/ColorsViewProvider';
 
 export function activate(context: vscode.ExtensionContext) {
 
