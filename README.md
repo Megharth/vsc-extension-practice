@@ -1,65 +1,21 @@
-# practice README
+# VSCode Extension practice
 
-This is the README for your extension "practice". After writing up a brief description, we recommend including the following sections.
+Here I will be going through the steps I went through to create an extension in the vscode. The best way to learn about vscode extension is to go over the [documentation](https://code.visualstudio.com/api/get-started/your-first-extension).
 
-## Features
+### How to setup the project.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+clone the project and run `npm install` to install all the dependencies. If you are using vscode you just need to press `F5` to build the project and open the output. 
 
-For example if there is an image subfolder under your extension project workspace:
+### Step 1: Understanding subscriptions
 
-\!\[feature X\]\(images/feature-x.png\)
+Every command or view will be exposed as a subscription. So, I have stored them in an array and then I pushed them in subscriptions array of the context provided by `vscode`. You  can checkout the code at that point with [subscriptions](https://github.com/Megharth/vsc-extension-practice/releases/tag/subscriptions) tag. This will contain two command `helloWorld` and `newCommand`.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Step 2: Understanding webview view
 
-## Requirements
+Here I added a new class that will generate HTML Content for our webview view. And then I created an instance of it in `extension.ts` to create a subscription (in this case we register our webview view). Checkout the code with [webviewView](https://github.com/Megharth/vsc-extension-practice/releases/tag/webviewView) tag.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### Step 3: Creating an item in the sidebar
 
-## Extension Settings
+I created an item in the sidebar with the help of [this](https://code.visualstudio.com/api/extension-guides/tree-view) documentation (head down to **View Container** section).
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Tag: [viewContainer](https://github.com/Megharth/vsc-extension-practice/releases/tag/viewContainer)
