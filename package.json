@@ -16,12 +16,23 @@
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
-		"views": {
-			"explorer": [
+		"viewsContainers": {
+			"activitybar": [
 				{
-					"type": "webview",
+					"id": "practice",
+					"title": "Practice Extension",
+					"icon": "src/assets/dashboard-dark.png"
+				}
+			]
+		},
+		"views": {
+			"practice": [
+				{
 					"id": "practice.colorView",
-					"name": "Practice colors"
+					"name": "Practice Colorview",
+					"icon": "src/assets/dashboard-dark.png",
+					"contextualTitle": "Practice Extension",
+					"type": "webview"
 				}
 			]
 		},
