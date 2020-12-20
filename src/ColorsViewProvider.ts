@@ -26,8 +26,9 @@ export default class ColorsViewProvider implements vscode.WebviewViewProvider {
     }
 
     private _getHTMLContent(webview: vscode.Webview) {
-        const reactAppPath = vscode.Uri.joinPath(this._extensionUri, "reactApp", "reactApp.js");
+        const reactAppPath = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'reactApp', 'reactApp.js'));
         const nonce = getNonce();
+        console.log(reactAppPath);
         return `
         <!DOCTYPE html>
         <html lang="en">
@@ -37,8 +38,10 @@ export default class ColorsViewProvider implements vscode.WebviewViewProvider {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
             </head>
             <body>
-                <div id="root"></div>
-                <script src="${reactAppPath}" nonce=${nonce}></script>
+                <div id="root">
+                    <button>button</button>
+                </div>
+                <script src="${reactAppPath}" nonce="${nonce}"></script>
             </body>
         </html>
         `;

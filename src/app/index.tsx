@@ -5,7 +5,7 @@ import './index.css';
 
 const helloWorld = (
     <React.Fragment>
-        <h1>Hello world</h1>
+        <h1>Hello From React App</h1>
     </React.Fragment>
 );
 

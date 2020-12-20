@@ -14,7 +14,7 @@
 		"onCommand:practice.helloWorld",
 		"onCommand:practice.newCommand"
 	],
-	"main": "./dist/extension.js",
+	"main": "./out/extension.js",
 	"contributes": {
 		"viewsContainers": {
 			"activitybar": [
@@ -48,7 +48,7 @@
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run package",
+		"vscode:prepublish": "npm run compile",
 		"compile": "npm-run-all compile:*",
 		"compile:extension": "tsc -p ./",
 		"compile:views": "webpack --mode development",
