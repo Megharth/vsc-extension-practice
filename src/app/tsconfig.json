@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "moduleResolution": "Node",
+        "target": "ES6",
+        "outDir": "reactApp",
+        "lib": ["ES6", "DOM"],
+        "jsx": "react",
+        "rootDir": "..",
+        "noUnusedLocals": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "experimentalDecorators": true
+    },
+    "exclude": ["node_modules"]
+}

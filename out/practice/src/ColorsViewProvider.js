@@ -1,30 +1,20 @@
-import * as vscode from 'vscode';
-
-export default class ColorsViewProvider implements vscode.WebviewViewProvider {
-    public static readonly viewType:string = 'practice.colorView';
-    private _view?: vscode.WebviewView;
-    private _extensionUri: vscode.Uri;
-
-    constructor(extensionUri: vscode.Uri) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const vscode = require("vscode");
+class ColorsViewProvider {
+    constructor(extensionUri) {
         this._extensionUri = extensionUri;
     }
-
-    public resolveWebviewView(
-        webviewView: vscode.WebviewView,
-        context: vscode.WebviewViewResolveContext,
-        _token: vscode.CancellationToken
-    ) {
+    resolveWebviewView(webviewView, context, _token) {
         this._view = webviewView;
-
         webviewView.webview.options = {
             enableScripts: true,
             localResourceRoots: [this._extensionUri]
         };
-
         webviewView.webview.html = this._getHTMLContent(webviewView.webview);
     }
-
-    private _getHTMLContent(webview: vscode.Webview) {
+    _getHTMLContent(webview) {
+        const reactAppPath = vscode.Uri.joinPath(this._extensionUri, "reactApp", "reactApp.js").with({ scheme: "vscode-resource" });
         const nonce = getNonce();
         const stylesheet = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'src', 'app', 'index.css'));
         return `
@@ -37,19 +27,21 @@ export default class ColorsViewProvider implements vscode.WebviewViewProvider {
                 <link rel="stylesheet" href="${stylesheet}">
             </head>
             <body>
-                Hello world!
+                <div id="root"></div>
+                <script src="${reactAppPath}" />
             </body>
         </html>
         `;
     }
-
 }
-
+exports.default = ColorsViewProvider;
+ColorsViewProvider.viewType = 'practice.colorView';
 const getNonce = () => {
     let text = '';
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-	for (let i = 0; i < 32; i++) {
-		text += possible.charAt(Math.floor(Math.random() * possible.length));
-	}
+    for (let i = 0; i < 32; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
     return text;
 };
+//# sourceMappingURL=ColorsViewProvider.js.map
