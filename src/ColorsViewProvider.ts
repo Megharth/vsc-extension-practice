@@ -38,6 +38,9 @@ export default class ColorsViewProvider implements vscode.WebviewViewProvider {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
                 <link href="${stylesheet}" rel="stylesheet">
+                <script>
+                    window.acquireVsCodeApi = acquireVsCodeApi;
+                </script>
             </head>
             <body>
                 <div id="root">
